@@ -4,7 +4,7 @@
 This image was made for developing web application in php language.
 
 ### What does it contain?
-This image built on Fedora 24. It contains httpd web server with php and php-mysql.
+This image built on Fedora 24. It contains a httpd web server with php and php-mysql.
 You can access web server on port 80.
 
 ### How can you use it?
@@ -20,4 +20,9 @@ You need an initialized and configured mariadb docker image.
 2. `docker run -p 80:80 --name web --link mariadb:db szokekaroly/fedora-httpd-php`
 3. set in php configuration file: hostname:db, password:yourpw
 
-Or you can make a docker-composer file.
+Or you can make a docker-composer file. (I will try it later.)
+
+### Using image with xdebug
+`docker run -p 80:80 -e XDEBUG_CONFIG="remote_host={{YOUR_IP_ADDRESS}}" szokekaroly/fedora-httpd-php:xdebug`
+
+example: `docker run -p 80:80 -e XDEBUG_CONFIG="remote_host=192.168.0.2" szokekaroly/fedora-httpd-php:xdebug`
