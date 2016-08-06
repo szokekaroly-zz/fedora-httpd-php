@@ -9,9 +9,9 @@ You can access web server on port 80.
 
 ### How can you use it?
 
-1. `docker run -p 80:80 --name web szokekaroly/fedora-http-php`
-2. `docker cp src web:/var/www/html`
-3. you can access it in the browser: http://localhost/src
+1. copy your sources into /var/www/html
+2. `docker run -p 80:80 -v /var/www/html:/var/www/html --name web szokekaroly/fedora-http-php`
+3. you can access it in the browser: http://localhost/
 
 ### How can you link this image with mariadb?
 You need an initialized and configured mariadb docker image.
