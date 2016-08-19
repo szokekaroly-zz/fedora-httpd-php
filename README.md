@@ -16,11 +16,11 @@ You can access web server on port 80.
 ### How can you link this image with mariadb?
 You need an initialized and configured mariadb docker image.
 
-1. `docker run -p 3306:3306 --name mariadb -e MYSQL_ROOT_PASSWORD=yourpw mariadb`
+1. `docker run -p 3306:3306 --name mariadb -v mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=yourpw mariadb`
 2. `docker run -p 80:80 --name web --link mariadb:db szokekaroly/fedora-httpd-php`
-3. set in php configuration file: hostname:db, password:yourpw
+3. set in your php configuration file: hostname=db, password=yourpw
 
-Or you can make a docker-composer file. (I will try it later.)
+Or you can make a docker-composer file. Sample [docker-compose](docker-compose.yaml) file
 
 ### Using image with xdebug
 `docker run -p 80:80 -e XDEBUG_CONFIG="remote_host={{YOUR_IP_ADDRESS}}" szokekaroly/fedora-httpd-php:xdebug`
