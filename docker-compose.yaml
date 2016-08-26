@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+
+  webx:
+    image: szokekaroly/fedora-httpd-php:xdebug
+    container_name: webx
+    environment: 
+      - XDEBUG_CONFIG=remote_host={{yourt ip address}}
+    ports:
+      - "80:80"
+    links:
+      - mariadb:db
+      - phpmyadmin:dbadmin
+    volumes:
+      - {{your source directory}}:/var/www/html
+    depends_on:
+      - mariadb
+      - phpmyadmin
+
+  mariadb:
+    environment:
+      MYSQL_ROOT_PASSWORD: {{your password}}
+    image: mariadb
+    container_name: mariadb
+    volumes:
+      - mariadb:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - 8080:80
+    links:
+      - mariadb:db
+    depends_on:
+      - mariadb
+    volumes:
+      - mariadb:/var/lib/mysql
+      - sessions:/sessions
+    
+volumes:
+  mariadb:
+    driver: local
+  sessions:
+    driver: local
