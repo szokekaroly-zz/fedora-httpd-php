@@ -3,10 +3,8 @@ version: '2'
 services:
 
   webx:
-    image: szokekaroly/fedora-httpd-php:xdebug
-    container_name: webx
-    environment: 
-      - XDEBUG_CONFIG=remote_host={{yourt ip address}}
+    image: szokekaroly/fedora-httpd-php
+    container_name: web
     ports:
       - "80:80"
     links:
