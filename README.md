@@ -20,7 +20,7 @@ You need an initialized and configured mariadb docker image.
 2. `docker run -p 80:80 --name web --link mariadb:db szokekaroly/fedora-httpd-php`
 3. set in your php configuration file: hostname=db, password=yourpw
 
-Or you can make a docker-composer file. Sample [docker-compose](docker-compose.yaml) file
+Or you can make a docker-composer file. Sample [docker-compose](https://github.com/szokekaroly/fedora-httpd-php/blob/master/docker-compose.yaml) file
 
 ### Using image with xdebug
 `docker run -p 80:80 -e XDEBUG_CONFIG="remote_host={{YOUR_IP_ADDRESS}}" szokekaroly/fedora-httpd-php:xdebug`
