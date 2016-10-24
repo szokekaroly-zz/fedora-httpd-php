@@ -1,5 +1,6 @@
 FROM fedora:latest
-RUN dnf install -y httpd php php-mysqlnd php-xdebug
+RUN dnf -y update \
+ && dnf -y install httpd php php-mysqlnd php-xdebug
 RUN echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
 RUN echo "xdebug.remote_enable=1" >> /etc/php.d/15-xdebug.ini \
     && echo "xdebug.remote_autostart=1" >> /etc/php.d/15-xdebug.ini \
