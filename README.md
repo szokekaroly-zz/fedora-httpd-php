@@ -4,7 +4,7 @@
 This image was made for developing web application in php language.
 
 ### What does it contain?
-This image built on Fedora 24. It contains a httpd web server with php and php-mysql.
+This image built on Fedora 25. It contains a httpd web server with php and php-mysql.
 You can access web server on port 80.
 
 ### How can you use it?
