@@ -2,19 +2,17 @@ version: '2'
 
 services:
 
-  webx:
+  web:
     image: szokekaroly/fedora-httpd-php
     container_name: web
     ports:
       - "80:80"
     links:
       - mariadb:db
-      - phpmyadmin:dbadmin
     volumes:
       - {{your source directory}}:/var/www/html
     depends_on:
       - mariadb
-      - phpmyadmin
 
   mariadb:
     environment:
@@ -39,6 +37,4 @@ services:
     
 volumes:
   mariadb:
-    driver: local
   sessions:
-    driver: local
