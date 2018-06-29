@@ -1,4 +1,5 @@
 FROM fedora:latest
+LABEL maintainer="szoke.karcsi@gmail.com"
 RUN dnf -y update \
  && dnf -y install httpd php php-mysqlnd \
  && dnf clean all
